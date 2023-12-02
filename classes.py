@@ -1,9 +1,8 @@
-from flask_login import UserMixin
 from flask_sqlalchemy import SQLAlchemy
-from sqlalchemy import Table, ForeignKey, Column, Integer, String, Float, Time, Boolean, DateTime
-from sqlalchemy.orm import relationship
+from sqlalchemy import Column, Integer, String, DateTime
 
 db = SQLAlchemy()
+
 
 class Article(db.Model):
     __tablename__ = "articles"
@@ -17,6 +16,7 @@ class Article(db.Model):
     result = Column(String(250), nullable=False)
     problems = Column(String(250), nullable=False)
     additional_notes = Column(String(500), nullable=True)
+    addition_date = Column(DateTime, nullable=False)
 
 
 class Password(db.Model):

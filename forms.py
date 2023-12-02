@@ -1,7 +1,6 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, FloatField, IntegerField, SelectMultipleField, FieldList, FormField, TimeField, SubmitField, SelectField, BooleanField
-from wtforms.validators import DataRequired, Email, EqualTo, Length, Regexp
-from flask_ckeditor import CKEditorField
+from wtforms import StringField, IntegerField, SubmitField, SelectField, BooleanField
+from wtforms.validators import DataRequired
 
 
 class AddArticleForm(FlaskForm):
@@ -26,3 +25,19 @@ class GivePasswordForm(FlaskForm):
     password = StringField('Hasło', validators=[DataRequired()])
     submit = SubmitField('Zaloguj się')
 
+
+class SortForm(FlaskForm):
+    sort_by = SelectField('Sortuj po', choices=[
+        ('addition_date', 'Data dodania'),
+        ('year', 'Rok artykułu'),
+        ('category', 'Kategoria'),
+        ('title', 'Tytuł')
+    ])
+    ascending = BooleanField('Rosnąco')
+    submit = SubmitField('Sortuj')
+
+
+class CheckArticleForm(FlaskForm):
+    link = StringField('Link artykułu')
+    title = StringField('Tytuł artykułu')
+    submit = SubmitField('Sprawdź')
