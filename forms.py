@@ -17,7 +17,7 @@ class AddArticleForm(FlaskForm):
 
 
 class AddPasswordForm(FlaskForm):
-    value = StringField('Hasło', validators=[DataRequired()])
+    password = StringField('Hasło', validators=[DataRequired()])
     submit = SubmitField('Dodaj hasło')
 
 

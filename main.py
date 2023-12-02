@@ -1,10 +1,10 @@
 import os
 from datetime import datetime
 from functools import wraps
+
 from flask import Flask, render_template, redirect, url_for, flash, session
 from flask_bootstrap import Bootstrap5
 from flask_ckeditor import CKEditor
-from flask_login import LoginManager
 from werkzeug.security import generate_password_hash, check_password_hash
 
 from classes import *
@@ -14,8 +14,6 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = os.environ['FLASK_KEY']
 ckeditor = CKEditor(app)
 Bootstrap5(app)
-login_manager = LoginManager()
-login_manager.init_app(app)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///base.db'
 db.init_app(app)
 
@@ -45,14 +43,14 @@ def give_password():
     form = GivePasswordForm()
     if form.validate_on_submit():
         password = Password.query.filter_by(id=1).first()
-        if password and check_password_hash(password.password, form.password.data):
+        if password and check_password_hash(password.value, form.password.data):
             session['logged_in'] = True
             return redirect(url_for('home'))
         else:
             flash("Niepoprawne hasło!")
             return redirect(url_for('give_password'))
 
-    return render_template("index.html")
+    return render_template("index.html", form=form)
 
 
 @app.route('/add_password', methods=["GET", "POST"])

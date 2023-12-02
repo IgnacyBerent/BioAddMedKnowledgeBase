@@ -8,7 +8,7 @@ class Article(db.Model):
     __tablename__ = "articles"
     id = Column(Integer, primary_key=True, autoincrement=True)
     link = Column(String(250), unique=True, nullable=False)
-    Category = Column(String(250), nullable=False)
+    category = Column(String(250), nullable=False)
     year = Column(Integer)
     title = Column(String(250), unique=True, nullable=False)
     problem_description = Column(String(250), nullable=False)
