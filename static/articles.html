@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+    <h1>Wszystkie artykuły</h1>
+    <form method="POST">
+        {{ form.hidden_tag() }}
+        {{ form.sort_by.label }} {{ form.sort_by() }}
+        {{ form.ascending.label }} {{ form.ascending() }}
+        {{ form.submit() }}
+    </form>
+    {% for article in articles %}
+        <div>
+            <h2>{{ article.title }}</h2>
+            <p>Link: {{ article.link }}</p>
+            <p>Rok: {{ article.year }}</p>
+            <p>Kategoria: {{ article.category }}</p>
+            <p>Opis problemu: {{ article.problem_description }}</p>
+            <p>Opis rozwiązania: {{ article.solution_description }}</p>
+            <p>Wynik: {{ article.result }}</p>
+            <p>Problemy: {{ article.problems }}</p>
+            <p>Dodatkowe uwagi: {{ article.additional_notes }}</p>
+        </div>
+    {% endfor %}
+{% endblock %}

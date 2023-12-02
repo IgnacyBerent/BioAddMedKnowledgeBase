@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+    <h1>Strona główna</h1>
+    <form method="POST">
+        {{ form.hidden_tag() }}
+        {{ form.link.label }} {{ form.link() }}
+        {{ form.title.label }} {{ form.title() }}
+        {{ form.submit() }}
+    </form>
+    <a href="{{ url_for('add_article') }}">Dodaj artykuł</a>
+    <a href="{{ url_for('show_articles') }}">Pokaż wszystkie artykuły</a>
+{% endblock %}

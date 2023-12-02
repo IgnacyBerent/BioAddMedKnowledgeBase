@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+    <h1>Dodaj artykuł</h1>
+    <form method="POST">
+        {{ form.hidden_tag() }}
+        {{ form.link.label }} {{ form.link() }}
+        {{ form.year.label }} {{ form.year() }}
+        {{ form.category.label }} {{ form.category() }}
+        {{ form.title.label }} {{ form.title() }}
+        {{ form.problem_description.label }} {{ form.problem_description() }}
+        {{ form.solution_description.label }} {{ form.solution_description() }}
+        {{ form.result.label }} {{ form.result() }}
+        {{ form.problems.label }} {{ form.problems() }}
+        {{ form.additional_notes.label }} {{ form.additional_notes() }}
+        {{ form.submit() }}
+    </form>
+{% endblock %}
