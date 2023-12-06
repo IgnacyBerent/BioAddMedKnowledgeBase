@@ -4,7 +4,6 @@ from functools import wraps
 
 from flask import Flask, render_template, redirect, url_for, flash, session
 from flask_bootstrap import Bootstrap5
-from flask_ckeditor import CKEditor
 from werkzeug.security import generate_password_hash, check_password_hash
 
 from classes import *
@@ -12,7 +11,6 @@ from forms import *
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = os.environ['FLASK_KEY']
-ckeditor = CKEditor(app)
 Bootstrap5(app)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///base.db'
 db.init_app(app)
