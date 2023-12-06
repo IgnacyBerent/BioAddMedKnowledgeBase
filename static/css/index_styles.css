@@ -1,0 +1,42 @@
+.password-label{
+  margin:20px;
+  display: block;
+  text-align: center;
+  color: white;
+  font-size: 25px;
+  font-weight: 700;
+}
+.password-form{
+  display: block;
+  border-radius: 5px;
+  padding: 5px 10px;
+  border: none;
+}
+.password-button{
+  width: 70%;
+  margin-top: 30px;
+  border-radius: 10px;
+  border: rgb(194, 82, 255) 2px solid;
+  background-color: rgb(189, 114, 255);
+  text-shadow: 0 0 2px var(--text-shadow);
+  color: var(--text-color);
+  padding: 5px 10px;
+  transition: all .2s;
+  font-weight: 400;
+}
+.password-button:hover{
+  transform: scale(1.02);
+  box-shadow: 0 0 5px rgba(0,0,0,0.5);
+}
+.input-container{
+  width: min-content;
+  display: flex;
+  align-items: center;
+  background: transparent;
+  padding: 10%;
+  margin: auto;
+}
+form{
+  display: grid;
+  justify-items: center;
+}

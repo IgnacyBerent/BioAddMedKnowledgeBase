@@ -1,17 +1,21 @@
 {% extends "base.html" %}
 {% block content %}
-    <h1>Dodaj artykuł</h1>
-    <form method="POST">
+<link href="/static/css/add_article_styles.css" rel="stylesheet">
+<header class="header">
+    <img class="logo" src="static\css\logo_bioaddmed.jpg">
+    <h1>Dodaj Artykuł</h1>
+</header>
+    <form method="POST" class="form-grid">
         {{ form.hidden_tag() }}
-        {{ form.link.label }} {{ form.link() }}
-        {{ form.year.label }} {{ form.year() }}
-        {{ form.category.label }} {{ form.category() }}
-        {{ form.title.label }} {{ form.title() }}
-        {{ form.problem_description.label }} {{ form.problem_description() }}
-        {{ form.solution_description.label }} {{ form.solution_description() }}
-        {{ form.result.label }} {{ form.result() }}
-        {{ form.problems.label }} {{ form.problems() }}
-        {{ form.additional_notes.label }} {{ form.additional_notes() }}
-        {{ form.submit() }}
+        {{ form.link.label(class="link-label") }} {{ form.link(class="link-input") }}
+        {{ form.year.label(class="year-label") }} {{ form.year(class="year-input") }}
+        {{ form.category.label(class="category-label") }} {{ form.category(class="category-input") }}
+        {{ form.title.label(class="title-label") }} {{ form.title(class="title-input") }}
+        {{ form.problem_description.label(class="problem-description-label") }} {{ form.problem_description(class="problem-description-input") }}
+        {{ form.solution_description.label(class="solution-description-input") }} {{ form.solution_description(class="solution-description-input") }}
+        {{ form.result.label(class="result-label") }} {{ form.result(class="result-input") }}
+        {{ form.problems.label(class="problems-label") }} {{ form.problems(class="form-input") }}
+        {{ form.additional_notes.label(class="additional-notes-label") }} {{ form.additional_notes(class="additional-notes-input") }}
+        {{ form.submit(class="submit-button") }}
     </form>
 {% endblock %}

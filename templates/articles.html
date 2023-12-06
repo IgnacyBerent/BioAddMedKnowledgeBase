@@ -1,23 +1,30 @@
 {% extends "base.html" %}
 {% block content %}
+<link href="/static/css/articles_styles.css" rel="stylesheet">
+<header class="header">
+    <img class="logo" src="static\css\logo_bioaddmed.jpg">
     <h1>Wszystkie artykuły</h1>
+</header>
+    
     <form method="POST">
         {{ form.hidden_tag() }}
         {{ form.sort_by.label }} {{ form.sort_by() }}
         {{ form.ascending.label }} {{ form.ascending() }}
         {{ form.submit() }}
     </form>
+    <div class="articles">
     {% for article in articles %}
-        <div>
+        <div class="article-container">
             <h2>{{ article.title }}</h2>
-            <p>Link: {{ article.link }}</p>
-            <p>Rok: {{ article.year }}</p>
-            <p>Kategoria: {{ article.category }}</p>
-            <p>Opis problemu: {{ article.problem_description }}</p>
-            <p>Opis rozwiązania: {{ article.solution_description }}</p>
-            <p>Wynik: {{ article.result }}</p>
-            <p>Problemy: {{ article.problems }}</p>
-            <p>Dodatkowe uwagi: {{ article.additional_notes }}</p>
+            <p class="link-label">Link: <a href="{{ article.link }}">{{ article.link }}</a></p>
+            <p class="year-label">Rok: {{ article.year }}</p>
+            <p class="category-label">Kategoria: {{ article.category }}</p>
+            <p class="problem-label">Opis problemu: {{ article.problem_description }}</p>
+            <p class="solution-label">Opis rozwiązania: {{ article.solution_description }}</p>
+            <p class="result-label">Wynik: {{ article.result }}</p>
+            <p class="problems-label">Problemy: {{ article.problems }}</p>
+            <p class="additional-notes-label">Dodatkowe uwagi: {{ article.additional_notes }}</p>
         </div>
+    </div>
     {% endfor %}
 {% endblock %}
