@@ -13,3 +13,6 @@ TODO:
 - naprawić homepage
 - powiększyć logo (może wyświetlać je na środku u góry i pod nim dopisać 'Baza Wiedzy')
 - dodać wyświetlenie ilości artykułów w bazie danych na home page zmienna w jinjy -> {number_of_articles}
+
+BOOTSTRAP EXAMPLES:
+- https://getbootstrap.com/docs/5.3/examples/
