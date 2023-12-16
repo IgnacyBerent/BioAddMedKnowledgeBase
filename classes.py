@@ -17,6 +17,8 @@ class Article(db.Model):
     problems = Column(String(250), nullable=False)
     additional_notes = Column(String(500), nullable=True)
     addition_date = Column(DateTime, nullable=False)
+    analysis_author = Column(String(250), nullable=True)
+    doi = Column(String(250), nullable=False)
 
 
 class Password(db.Model):

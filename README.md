@@ -5,9 +5,11 @@ HOW TO RUN:
 
 
 TODO:
-- poprawne wyświetlanie pop up wiadomości flash
-- stoworzenie frontendu
-   - header z łądnym logiem bioaddmedu i nawigatorem
-   - ładny footer
-   - ładny wygląd formularzy dodawania artykułów
-   - ładny sposób wyświetlania wszystkich artykółow
+- poprawne wyświetlanie pop up wiadomości flash po wpisaniu doi
+- poprawienie wyświetlania navigatora (ewentualnie zrobić header z bootstrapa)
+- dodanie prostego footera (na bootstrapie są przykłady które można skopiować)
+- poprawienie czcionek w dodawaniu artykułu
+- poprawienie wyświetlania artykułów
+- naprawić homepage
+- powiększyć logo (może wyświetlać je na środku u góry i pod nim dopisać 'Baza Wiedzy')
+- dodać wyświetlenie ilości artykułów w bazie danych na home page zmienna w jinjy -> {number_of_articles}

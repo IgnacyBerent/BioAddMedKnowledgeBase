@@ -1,12 +1,9 @@
 {% extends "base.html" %}
 {% block content %}
 <link href="/static/css/add_article_styles.css" rel="stylesheet">
-<header class="header">
-    <img class="logo" src="static\css\logo_bioaddmed.jpg">
-    <h1>Dodaj Artykuł</h1>
-</header>
     <form method="POST" class="form-grid">
         {{ form.hidden_tag() }}
+        {{ form.doi.label(class="link-label") }} {{ form.doi(class="link-input", autocomplete="off") }}
         {{ form.link.label(class="link-label") }} {{ form.link(class="link-input") }}
         {{ form.year.label(class="year-label") }} {{ form.year(class="year-input") }}
         {{ form.category.label(class="category-label") }} {{ form.category(class="category-input") }}
@@ -16,6 +13,8 @@
         {{ form.result.label(class="result-label") }} {{ form.result(class="result-input") }}
         {{ form.problems.label(class="problems-label") }} {{ form.problems(class="form-input") }}
         {{ form.additional_notes.label(class="additional-notes-label") }} {{ form.additional_notes(class="additional-notes-input") }}
+        {{ form.first_name.label(class="first-name-label") }} {{ form.first_name(class="first-name-input") }}
+        {{ form.last_name.label(class="last-name-label") }} {{ form.last_name(class="last-name-input") }}
         {{ form.submit(class="submit-button") }}
     </form>
 {% endblock %}

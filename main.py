@@ -23,7 +23,6 @@ def login_required(f):
     """
     Decorator that checks if user is logged in.
     """
-
     @wraps(f)
     def wrapper(*args, **kwargs):
         if 'logged_in' not in session:
@@ -48,7 +47,7 @@ def give_password():
             flash("Niepoprawne hasło!")
             return redirect(url_for('give_password'))
 
-    return render_template("index.html", form=form)
+    return render_template("index.html", form=form, is_login_page=True)
 
 
 @app.route('/add_password', methods=["GET", "POST"])
@@ -79,27 +78,18 @@ def add_password():
 @login_required
 def home():
     """
-    Allows to check if article with given link or title exists.
+    Allows to check if article with given doi exists in database.
     """
     form = CheckArticleForm()
     if form.validate_on_submit():
-        if form.link.data and form.title.data:
-            flash("Proszę wypełnić tylko jedno pole!")
-        elif form.link.data:
-            article = Article.query.filter_by(link=form.link.data).first()
+        if form.doi.data:
+            article = Article.query.filter_by(doi=form.doi.data).first()
             if article:
-                flash("Artykuł o podanym linku JUŻ ISTNIEJE!")
+                flash("Artykuł już istnieje!")
             else:
-                flash("Artykuł o podanym linku NIE istnieje!")
-        elif form.title.data:
-            article = Article.query.filter_by(title=form.title.data).first()
-            if article:
-                flash("Artykuł o podanym tytule JUŻ ISTNIEJE!")
-            else:
-                flash("Artykuł o podanym tytule NIE istnieje!")
-        else:
-            flash("Proszę wypełnić jedno z pól!")
-    return render_template("home.html", form=form)
+                flash("Nie znaleziono artykułu!")
+    number_of_articles = len(Article.query.all())
+    return render_template("home.html", form=form, number_of_articles=number_of_articles)
 
 
 @app.route('/add_article', methods=["GET", "POST"])
@@ -121,6 +111,8 @@ def add_article():
             problems=form.problems.data,
             additional_notes=form.additional_notes.data,
             addition_date=datetime.now(),
+            analysis_author=f"{(form.first_name.data.capitalize())} {form.last_name.data.capitalize()}",
+            doi=form.doi.data,
         )
         db.session.add(article)
         db.session.commit()

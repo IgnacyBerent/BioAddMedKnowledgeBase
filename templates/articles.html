@@ -1,11 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 <link href="/static/css/articles_styles.css" rel="stylesheet">
-<header class="header">
-    <img class="logo" src="static\css\logo_bioaddmed.jpg">
-    <h1>Wszystkie artykuły</h1>
-</header>
-    
+
     <form method="POST">
         {{ form.hidden_tag() }}
         {{ form.sort_by.label }} {{ form.sort_by() }}
@@ -24,6 +20,8 @@
             <p class="result-label">Wynik: {{ article.result }}</p>
             <p class="problems-label">Problemy: {{ article.problems }}</p>
             <p class="additional-notes-label">Dodatkowe uwagi: {{ article.additional_notes }}</p>
+            <!-- TODO: Add class for author -->
+            <p class="">Autor: {{ article.author }}</p>
         </div>
     </div>
     <script>

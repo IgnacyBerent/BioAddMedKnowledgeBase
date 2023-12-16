@@ -1,19 +1,11 @@
 {% extends "base.html" %}
 {% block content %}
 <link href="/static/css/home_styles.css" rel="stylesheet">
-<header class="header">
-    <img class="logo" src="static\css\logo_bioaddmed.jpg">
-    <h1 class="header-text">Strona główna</h1>
-</header>
-    <div class="links-container">
-            <a class="add-article-link" href="{{ url_for('add_article') }}">Dodaj artykuł</a>
-            <a class="show-articles-link" href="{{ url_for('show_articles') }}">Pokaż wszystkie artykuły</a>
-    </div>
     <form method="POST">
         {{ form.hidden_tag() }}
         <div class="form-grid">
-            {{ form.link.label(class="link-label") }} {{ form.link(class="link-input", autocomplete="off") }}
-            {{ form.title.label(class="title-label") }} {{ form.title(class="title-input", autocomplete="off") }}
+            <!-- TODO: Add class for doi -->
+            {{ form.doi.label(class="link-label") }} {{ form.doi(class="link-input", autocomplete="off") }}
             {{ form.submit(class="submit-button") }}
         </div>
     </form>

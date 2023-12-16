@@ -13,6 +13,9 @@ class AddArticleForm(FlaskForm):
     result = TextAreaField('Wynik', validators=[DataRequired()])
     problems = TextAreaField('Problemy', validators=[DataRequired()])
     additional_notes = TextAreaField('Dodatkowe uwagi', validators=[DataRequired()])
+    first_name = StringField('Imię', validators=[DataRequired()])
+    last_name = StringField('Nazwisko', validators=[DataRequired()])
+    doi = StringField('DOI', validators=[DataRequired()])
     submit = SubmitField('Dodaj artykuł')
 
 
@@ -38,6 +41,5 @@ class SortForm(FlaskForm):
 
 
 class CheckArticleForm(FlaskForm):
-    link =  StringField('Link artykułu')
-    title = StringField('Tytuł artykułu')
+    doi = StringField('DOI')
     submit = SubmitField('Sprawdź')
