@@ -1,5 +1,6 @@
 :root{
   --background-color:rgb(115, 57, 224);
+  --background-color-lighter:rgb(137, 85, 233);
   --header-color:blueviolet;
   --text-color:white;
   --text-shadow:rgba(0,0,0,0.5);
@@ -14,7 +15,7 @@ html,main{
   width: 100vw;
   height: fit-content;
   background-color: var(--header-color);
-  position: absolute;
+  position: relative;
   top:0;
   right: 0;
   text-align: center;

@@ -14,6 +14,7 @@ a{
   color: var(--text-color);
   text-decoration: none;
   position: relative;
+  pointer-events: none;
 }
 a::after{
   position: absolute;
@@ -35,7 +36,25 @@ width: 100%;
 .article-container>p{
   display: none;
 }
-.article-container:hover>p{
-  display: block;
+.clicked{
   z-index: 1;
+  background-color: var(--background-color-lighter);
+  padding:0 2%;
+}
+.clicked>p{
+  display: block;
+}
+select {
+  outline: none;
+  color: var(--background-color-lighter);
+  background-color: var(--text-color);
+  cursor: pointer;
+}
+input{
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  color: var(--background-color-lighter);
+  background-color: var(--text-color);
+  cursor: pointer;  
 }

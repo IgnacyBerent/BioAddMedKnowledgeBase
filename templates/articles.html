@@ -15,7 +15,7 @@
     <div class="articles">
     {% for article in articles %}
         <div class="article-container">
-            <h2>{{ article.title }}</h2>
+            <h2 class="article-head">{{ article.title }}</h2>
             <p class="link-label">Link: <a href="{{ article.link }}">{{ article.link }}</a></p>
             <p class="year-label">Rok: {{ article.year }}</p>
             <p class="category-label">Kategoria: {{ article.category }}</p>
@@ -26,5 +26,17 @@
             <p class="additional-notes-label">Dodatkowe uwagi: {{ article.additional_notes }}</p>
         </div>
     </div>
+    <script>
+        const articles=document.querySelectorAll(".article-container");
+        articles.forEach((article)=>{
+            article.addEventListener("click",()=>{
+                if(article.classList.contains("clicked")){
+                    article.classList.remove("clicked");
+                }else{
+                    article.classList.add("clicked");
+            }
+        })
+    })
+    </script>
     {% endfor %}
 {% endblock %}
