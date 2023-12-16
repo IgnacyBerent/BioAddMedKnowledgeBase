@@ -20,6 +20,22 @@ class Article(db.Model):
     analysis_author = Column(String(250), nullable=True)
     doi = Column(String(250), nullable=False)
 
+    def to_dict(self):
+        return {
+            'link': self.link,
+            'year': self.year,
+            'category': self.category,
+            'title': self.title,
+            'problem_description': self.problem_description,
+            'solution_description': self.solution_description,
+            'result': self.result,
+            'problems': self.problems,
+            'additional_notes': self.additional_notes,
+            'addition_date': self.addition_date.isoformat(),
+            'analysis_author': self.analysis_author,
+            'doi': self.doi,
+        }
+
 
 class Password(db.Model):
     __tablename__ = "passwords"

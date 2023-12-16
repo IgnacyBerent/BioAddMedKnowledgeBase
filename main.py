@@ -2,8 +2,9 @@ import os
 from datetime import datetime
 from functools import wraps
 
-from flask import Flask, render_template, redirect, url_for, flash, session
+from flask import Flask, render_template, redirect, url_for, flash, session, jsonify, request, abort
 from flask_bootstrap import Bootstrap5
+from flask_restful import Api, Resource
 from werkzeug.security import generate_password_hash, check_password_hash
 
 from classes import *
@@ -14,6 +15,42 @@ app.config['SECRET_KEY'] = os.environ['FLASK_KEY']
 Bootstrap5(app)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///base.db'
 db.init_app(app)
+api = Api(app)
+
+
+def require_api_key(view_function):
+    """
+    Decorator that add requirement of key to access api.
+    """
+    @wraps(view_function)
+    def decorated_function(*args, **kwargs):
+        if request.headers.get('Auth-Key') is None:
+            abort(401)
+        password = Password.query.filter_by(id=1).first()
+        if not password or not check_password_hash(password.value, request.headers.get('Auth-Key')):
+            abort(401)
+        return view_function(*args, **kwargs)
+
+    return decorated_function
+
+
+class ArticleListResource(Resource):
+    """
+    Class that allows to get all articles from api.
+    """
+    method_decorators = [require_api_key]
+
+    @staticmethod
+    def get():
+        """
+        Method that allows to get all articles from api.
+        :return: all articles from database
+        """
+        articles = Article.query.all()
+        return jsonify({'articles': [article.to_dict() for article in articles]})
+
+
+api.add_resource(ArticleListResource, '/api/articles')
 
 with app.app_context():
     db.create_all()
