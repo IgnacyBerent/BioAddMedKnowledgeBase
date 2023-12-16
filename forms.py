@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, IntegerField, SubmitField, SelectField, BooleanField
+from wtforms import StringField, IntegerField, SubmitField, SelectField, BooleanField,TextAreaField
 from wtforms.validators import DataRequired
 
 
@@ -8,11 +8,11 @@ class AddArticleForm(FlaskForm):
     year = IntegerField('Rok', validators=[DataRequired()])
     category = StringField('Kategoria', validators=[DataRequired()])
     title = StringField('Tytuł', validators=[DataRequired()])
-    problem_description = StringField('Opis problemu', validators=[DataRequired()])
-    solution_description = StringField('Opis rozwiązania', validators=[DataRequired()])
-    result = StringField('Wynik', validators=[DataRequired()])
-    problems = StringField('Problemy', validators=[DataRequired()])
-    additional_notes = StringField('Dodatkowe uwagi', validators=[DataRequired()])
+    problem_description = TextAreaField('Opis problemu', validators=[DataRequired()])
+    solution_description = TextAreaField('Opis rozwiązania', validators=[DataRequired()])
+    result = TextAreaField('Wynik', validators=[DataRequired()])
+    problems = TextAreaField('Problemy', validators=[DataRequired()])
+    additional_notes = TextAreaField('Dodatkowe uwagi', validators=[DataRequired()])
     submit = SubmitField('Dodaj artykuł')
 
 
@@ -38,6 +38,6 @@ class SortForm(FlaskForm):
 
 
 class CheckArticleForm(FlaskForm):
-    link = StringField('Link artykułu')
+    link =  StringField('Link artykułu')
     title = StringField('Tytuł artykułu')
     submit = SubmitField('Sprawdź')

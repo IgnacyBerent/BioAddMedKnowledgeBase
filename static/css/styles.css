@@ -1,0 +1,37 @@
+:root{
+  --background-color:rgb(115, 57, 224);
+  --background-color-lighter:rgb(137, 85, 233);
+  --header-color:blueviolet;
+  --text-color:white;
+  --text-shadow:rgba(0,0,0,0.5);
+  --button-shadow:rgba(0,0,0,0.2);
+  --button-color:rgb(189, 114, 255);
+  --border-color:rgb(194, 82, 255);
+}
+html,main{
+  background-color: var(--background-color);
+}
+.header{
+  width: 100vw;
+  height: fit-content;
+  background-color: var(--header-color);
+  position: relative;
+  top:0;
+  right: 0;
+  text-align: center;
+  font-size: 35px;
+  color: var(--text-color);
+}
+.logo{
+  height: 60px;
+  border-radius: 20px;
+  margin: 5px;
+  left: 10%;
+  display: inline-block;
+}
+h1{
+  display: inline-block;
+}
+textarea:focus, input:focus{
+  outline: none;
+}
