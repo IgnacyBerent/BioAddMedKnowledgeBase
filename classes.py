@@ -1,14 +1,14 @@
 from flask_sqlalchemy import SQLAlchemy
-from sqlalchemy import Column, Integer, String, DateTime
+from sqlalchemy import Column, Integer, String, DateTime, PickleType
 
 db = SQLAlchemy()
 
 
 class Article(db.Model):
     __tablename__ = "articles"
-    id = Column(Integer, primary_key=True, autoincrement=True)
+    doi = Column(String(250), primary_key=True, nullable=False)
     link = Column(String(250), unique=True, nullable=False)
-    category = Column(String(250), nullable=False)
+    category = Column(PickleType, nullable=False)
     year = Column(Integer)
     title = Column(String(250), unique=True, nullable=False)
     problem_description = Column(String(250), nullable=False)
@@ -18,7 +18,6 @@ class Article(db.Model):
     additional_notes = Column(String(500), nullable=True)
     addition_date = Column(DateTime, nullable=False)
     analysis_author = Column(String(250), nullable=True)
-    doi = Column(String(250), nullable=False)
 
     def to_dict(self):
         return {

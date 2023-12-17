@@ -161,21 +161,26 @@ def add_article():
 @login_required
 def show_articles():
     """
-    Allows to show all articles and sort them by addition date, year, category or title.
+    Allows to show all articles and sort them by addition date, year or title.
+    Also allows to filter articles by category.
     """
     form = SortForm()
     if form.validate_on_submit():
         order = db.desc if not form.ascending.data else db.asc
         if form.sort_by.data == 'addition_date':
-            articles = Article.query.order_by(order(Article.addition_date)).all()
+            articles = Article.query.order_by(order(Article.addition_date))
         elif form.sort_by.data == 'year':
-            articles = Article.query.order_by(order(Article.year)).all()
-        elif form.sort_by.data == 'category':
-            articles = Article.query.order_by(order(Article.category)).all()
+            articles = Article.query.order_by(order(Article.year))
         elif form.sort_by.data == 'title':
-            articles = Article.query.order_by(order(Article.title)).all()
+            articles = Article.query.order_by(order(Article.title))
         else:
-            articles = Article.query.all()
+            articles = Article.query
+
+        if form.category.data:
+            articles = [article for article in articles if form.category.data in article.category]
+        else:
+            articles = articles.all()
+
         return render_template("articles.html", articles=articles, form=form)
     else:
         articles = Article.query.order_by(Article.addition_date.desc()).all()
