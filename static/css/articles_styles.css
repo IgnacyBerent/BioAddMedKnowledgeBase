@@ -1,52 +1,59 @@
-.articles{
-  width: 100vw;
-  margin-top: 15vh;
+/* Ogólne rzeczy */
+html,main,body{
+  background-color: var(--background-color);
+  overflow-x: hidden;
 }
+
+/*Container na artykuły*/
+.articles{
+  width: 100%;
+  margin-block: 100px;
+  display: flex;
+  flex-direction: column;
+}
+/* Pojedyńczy artykuł */
 .article-container{
   margin: auto;
   display: grid;
+  box-sizing: border-box;
+  padding: 5%;
   grid-template-columns: 1fr;
   z-index: 0;
   width: fit-content;
   text-align: center;
+  background-color: var(--background-color-lighter);
+  margin-top: 50px;
+  width: 80%;
 }
-a{
+
+/* Style linkow */
+.link-label>a{
   color: var(--text-color);
   text-decoration: none;
   position: relative;
-  pointer-events: none;
 }
-a::after{
+.link-label>a::after{
   position: absolute;
   content: '';
   background-color: var(--text-color);
-  height:1px;
+  height:2px;
   width: 0%;
   left: 0;
   bottom: 0;
   transition: width .2s;
 }
-a:hover::after{
-width: 100%;
+.link-label>a:hover::after{
+  width: 100%;
 }
+/* Stylowanie tekstu artykulu */
 .article-container>*{
   color: var(--text-color);
 }
 
-.article-container>p{
-  display: none;
-}
-.clicked{
-  z-index: 1;
-  background-color: var(--background-color-lighter);
-  padding:0 2%;
-}
-.clicked>p{
-  display: block;
-}
+/* Style sortowania */
 select {
   outline: none;
-  color: var(--background-color-lighter);
+  color: var(--high-contrast);
   background-color: var(--text-color);
   cursor: pointer;
 }
@@ -54,7 +61,26 @@ input{
   border: none;
   border-radius: 5px;
   outline: none;
-  color: var(--background-color-lighter);
+  color: var(--high-contrast);
   background-color: var(--text-color);
   cursor: pointer;  
+}
+.sort-conatiner{
+  display: grid;
+  width: 20%;
+  position: absolute;
+  align-items: center;
+  left: 65%;
+  margin-top: -80px;
+  gap:5px 10px;
+}
+.sort-conatiner>label{
+  color: var(--text-color);
+  width: max-content;
+}
+#submit{
+  grid-column-start: 1;
+  grid-column-end: 3;
+  width: 50%;
+  margin: auto;
 }
