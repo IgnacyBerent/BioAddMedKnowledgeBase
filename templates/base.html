@@ -12,6 +12,16 @@
         <h1>BioAddMed Baza Wiedzy</h1>
     </header>
     <main>
+        {% if not is_login_page %}
+        <button class="navbar-button">
+            <span class="burger"></span>
+        </button>
+        <ul class="navbar">
+            <li class="navbar-item"><a href="{{ url_for('show_articles') }}" class="navbar-link">Artykuły</a></li>
+            <li class="navbar-item"><a href="{{ url_for('add_article') }}" class="navbar-link">Dodaj artykuł</a></li>
+            <li class="navbar-item"><a href="{{ url_for('home') }}" class="navbar-link">Strona główna</a></li>
+        </ul>
+        {% endif %}
         {% block content %}
         {% endblock %}
     </main>
