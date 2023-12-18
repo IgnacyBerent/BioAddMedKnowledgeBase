@@ -17,7 +17,8 @@ class Article(db.Model):
     problems = Column(String(250), nullable=False)
     additional_notes = Column(String(500), nullable=True)
     addition_date = Column(DateTime, nullable=False)
-    analysis_author = Column(String(250), nullable=True)
+    user_id = Column(Integer, db.ForeignKey('users.id'), nullable=False)
+    analysis_author = db.relationship('User', backref='authored_articles')
 
     def to_dict(self):
         return {
@@ -31,7 +32,7 @@ class Article(db.Model):
             'problems': self.problems,
             'additional_notes': self.additional_notes,
             'addition_date': self.addition_date.isoformat(),
-            'analysis_author': self.analysis_author,
+            'analysis_author': self.analysis_author.username,
             'doi': self.doi,
         }
 
@@ -40,3 +41,11 @@ class Password(db.Model):
     __tablename__ = "passwords"
     id = Column(Integer, primary_key=True, autoincrement=True)
     value = Column(String(250))
+
+
+class User(db.Model):
+    __tablename__ = "users"
+    id = Column(Integer, primary_key=True, autoincrement=True)
+    username = Column(String(250), unique=True, nullable=False)
+    is_admin = Column(Integer, nullable=False, default=False)
+    articles = db.relationship("Article", backref="user", lazy=True)

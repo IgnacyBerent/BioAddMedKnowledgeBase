@@ -125,6 +125,7 @@ def home():
                 flash("Artykuł już istnieje!")
             else:
                 flash("Nie znaleziono artykułu!")
+        return redirect(url_for('home'))
     number_of_articles = len(Article.query.all())
     return render_template("home.html", form=form, number_of_articles=number_of_articles)
 
@@ -137,6 +138,12 @@ def add_article():
     """
     form = AddArticleForm()
     if form.validate_on_submit():
+        full_name = f"{(form.first_name.data.capitalize())} {form.last_name.data.capitalize()}"
+        user = User.query.filter_by(username=full_name).first()
+        if not user:
+            user = User(username=full_name)
+            db.session.add(user)
+            db.session.commit()
         article = Article(
             link=form.link.data,
             year=form.year.data,
@@ -148,7 +155,7 @@ def add_article():
             problems=form.problems.data,
             additional_notes=form.additional_notes.data,
             addition_date=datetime.now(),
-            analysis_author=f"{(form.first_name.data.capitalize())} {form.last_name.data.capitalize()}",
+            user_id=user.id,
             doi=form.doi.data,
         )
         db.session.add(article)

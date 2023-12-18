@@ -1,16 +1,23 @@
+/* Kolory dla strony */
 :root{
   --background-color:rgb(115, 57, 224);
   --background-color-lighter:rgb(137, 85, 233);
+  --background-color-darker:rgb(102, 34, 229);
   --header-color:blueviolet;
   --text-color:white;
   --text-shadow:rgba(0,0,0,0.5);
   --button-shadow:rgba(0,0,0,0.2);
   --button-color:rgb(189, 114, 255);
   --border-color:rgb(194, 82, 255);
+  --high-contrast:black;
 }
-html,main{
+
+/* Ogólne rzeczy */
+html,main,body{
   background-color: var(--background-color);
 }
+
+/* Style headera */
 .header{
   width: 100vw;
   height: fit-content;
@@ -22,16 +29,116 @@ html,main{
   font-size: 35px;
   color: var(--text-color);
 }
+
+/* Style loga */
 .logo{
-  height: 60px;
+  height: 80px;
   border-radius: 20px;
-  margin: 5px;
+  margin: auto;
+  margin-block: 5px;
   left: 10%;
-  display: inline-block;
+  display: block;
 }
+
+/* Header */
 h1{
   display: inline-block;
 }
 textarea:focus, input:focus{
   outline: none;
+}
+
+/* Style navbara */
+.navbar{
+  background-color: var(--background-color-lighter);
+  position: relative;
+  width: 20%;
+  left: -20%;
+  transition: left .5s;
+  padding: 0;
+}
+.navbar>li{
+  background-color: var(--background-color-darker);
+  width: 100%;
+  position: absolute;
+  text-align: center;
+  list-style-type: none;
+  padding-block: 20%;
+  padding: 25px 0;
+  z-index: 2;
+}
+.navbar>li:nth-child(1){
+  top:10px;
+}
+.navbar>li:nth-child(2){
+  top:60px;
+}
+.navbar>li:nth-child(3){
+  top:110px;
+}
+.navbar>li>a{
+  color: var(--text-color);
+  text-decoration: none;
+  position: relative;
+}
+.navbar>li>a::after{
+  position: absolute;
+  content: '';
+  background-color: var(--text-color);
+  height:2px;
+  width: 0%;
+  left: 0;
+  bottom: 0;
+  transition: width .2s;
+}
+.navbar>li>a:hover::after{
+width: 100%;
+}
+.open{
+  left:0;
+}
+.navbar-button{
+  margin: 10px;
+  display: inline;
+  height: 40px;
+  aspect-ratio: 1;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--text-color);
+}
+
+/* Przycisk otwierania navbaru */
+.burger{
+  position: relative;
+  width: 100%;
+  height: 2px;
+  background-color: var(--high-contrast);
+  transition: all .5s;
+}
+.burger::before,
+.burger::after{
+  content: "";
+  position: absolute;
+  inset: 0;
+  top:-300%;
+  height: 2px;
+  background-color: var(--high-contrast);
+  transition: all .5s;
+}
+.burger::after{
+  top:300%;
+}
+.clicked>span{
+  background-color: white;
+}
+.clicked>::before
+{
+  top:0;
+  transform: rotate(45deg);
+}
+.clicked>::after{
+  top:0;
+  transform: rotate(-45deg);
 }

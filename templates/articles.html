@@ -1,8 +1,9 @@
 {% extends "base.html" %}
 {% block content %}
+<script defer src="\static\js\scripts.js"></script>
 <link href="/static/css/articles_styles.css" rel="stylesheet">
-
-    <form method="POST">
+    <form method="POST" class="sort-conatiner">
+        <label>Ilość artykułów:</label><label class="articles-count "></label>
         {{ form.hidden_tag() }}
         {{ form.sort_by.label }} {{ form.sort_by() }}
         {{ form.category.label }} {{form.category() }}
@@ -22,20 +23,12 @@
             <p class="problems-label">Problemy: {{ article.problems }}</p>
             <p class="additional-notes-label">Dodatkowe uwagi: {{ article.additional_notes }}</p>
             <!-- TODO: Add class for author -->
-            <p class="problems-label">Autor: {{ article.analysis_author }}</p>
+            <p class="problems-label">Autor: {{ article.analysis_author.username }}</p>
         </div>
+    {% endfor %}
     </div>
     <script>
-        const articles=document.querySelectorAll(".article-container");
-        articles.forEach((article)=>{
-            article.addEventListener("click",()=>{
-                if(article.classList.contains("clicked")){
-                    article.classList.remove("clicked");
-                }else{
-                    article.classList.add("clicked");
-            }
-        })
-    })
+        const articleCount=document.querySelectorAll(".article-container").length;
+        document.querySelector(".articles-count").innerHTML=articleCount;
     </script>
-    {% endfor %}
 {% endblock %}

@@ -1,3 +1,18 @@
+/* Układ zawartości */
+.input-container{
+  width: min-content;
+  display: flex;
+  align-items: center;
+  background: transparent;
+  padding: 10%;
+  margin: auto;
+}
+form{
+  display: grid;
+  justify-items: center;
+}
+
+/* Style inputu i labela hasla */
 .password-label{
   margin:20px;
   display: block;
@@ -12,6 +27,8 @@
   padding: 5px 10px;
   border: none;
 }
+
+/* Style przycisku */
 .password-button{
   width: 70%;
   margin-top: 30px;
@@ -27,16 +44,4 @@
 .password-button:hover{
   transform: scale(1.02);
   box-shadow: 0 0 5px rgba(0,0,0,0.5);
-}
-.input-container{
-  width: min-content;
-  display: flex;
-  align-items: center;
-  background: transparent;
-  padding: 10%;
-  margin: auto;
-}
-form{
-  display: grid;
-  justify-items: center;
 }
