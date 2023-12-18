@@ -1,10 +1,11 @@
-
+html,main,body{
+  background-color: var(--background-color);
+}
 main{
   overflow:hidden;
 }
 .form-grid{
   margin: auto;
-  margin-top: 100px;
   display: grid;
   grid-template-columns: 1fr;
   width: 80%;
@@ -31,7 +32,7 @@ label{
   text-align: center;
 }
 input{
-  width: fit-content ;
+  width: fit-content;
   height: 30%;
   margin: auto;
   display: block;
@@ -60,3 +61,6 @@ textarea{
     padding:2rem;
   }
 }
+.navbar{
+  padding: 0;
+ }  

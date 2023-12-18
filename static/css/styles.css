@@ -1,6 +1,7 @@
 :root{
   --background-color:rgb(115, 57, 224);
   --background-color-lighter:rgb(137, 85, 233);
+  --background-color-darker:rgb(102, 34, 229);
   --header-color:blueviolet;
   --text-color:white;
   --text-shadow:rgba(0,0,0,0.5);
@@ -8,8 +9,15 @@
   --button-color:rgb(189, 114, 255);
   --border-color:rgb(194, 82, 255);
 }
-html,main{
+html,main,body{
   background-color: var(--background-color);
+}
+.container-fluid{
+  background-color: var(--background-color);
+}
+.navbar{
+  margin: 0;
+  padding: 0;
 }
 .header{
   width: 100vw;
@@ -34,4 +42,99 @@ h1{
 }
 textarea:focus, input:focus{
   outline: none;
+}
+.navbar{
+  background-color: var(--background-color-lighter);
+  position: absolute;
+  width: 20%;
+  left: -20%;
+  transition: left .5s;
+  padding: 0;
+}
+.navbar>li{
+  background-color: var(--background-color-darker);
+  width: 100%;
+  position: absolute;
+  text-align: center;
+  list-style-type: none;
+  padding-block: 20%;
+  padding: 25px 0;
+  z-index: 2;
+}
+.navbar>li:nth-child(1){
+  top:0;
+}
+.navbar>li:nth-child(2){
+  top:50px;
+}
+.navbar>li:nth-child(3){
+  top:100px;
+}
+.navbar>li>a{
+  color: var(--text-color);
+  text-decoration: none;
+  position: relative;
+}
+.navbar>li>a::after{
+  position: absolute;
+  content: '';
+  background-color: var(--text-color);
+  height:2px;
+  width: 0%;
+  left: 0;
+  bottom: 0;
+  transition: width .2s;
+}
+.navbar>li>a:hover::after{
+width: 100%;
+}
+.open{
+  left:0;
+}
+.navbar-button{
+  margin: 10px;
+  display: inline;
+  height: 30px;
+  width: 30px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.burger{
+  position: relative;
+  width: 100%;
+  height: 2px;
+  background-color: black;
+  transition: all .5s;
+}
+.burger::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  top:-200%;
+  height: 2px;
+  background-color: black;
+  transition: all .5s;
+}
+.burger::after{
+  content: "";
+  position: absolute;
+  inset: 0;
+  top:200%;
+  height: 2px;
+  background-color: black;
+  transition: all .5s;
+}
+.clicked>span{
+  background-color: white;
+}
+.clicked>::before
+{
+  top:0;
+  transform: rotate(45deg);
+}
+.clicked>::after{
+  top:0;
+  transform: rotate(-45deg);
 }

@@ -1,5 +1,13 @@
 {% extends "base.html" %}
 {% block content %}
+<button class="navbar-button">
+    <span class="burger"></span>
+</button>
+<ul class="navbar">
+    <li class="navbar-item"><a href="{{ url_for('show_articles') }}" class="navbar-link">Artykuły</a></li>
+    <li class="navbar-item"><a href="{{ url_for('add_article') }}" class="navbar-link">Dodaj artykuł</a></li>
+    <li class="navbar-item"><a href="{{ url_for('home') }}" class="navbar-link">Strona główna</a></li>
+</ul>
 <link href="/static/css/home_styles.css" rel="stylesheet">
     <form method="POST">
         {{ form.hidden_tag() }}

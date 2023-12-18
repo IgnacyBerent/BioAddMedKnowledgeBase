@@ -2,9 +2,11 @@
 body .dark{
 
 }
+html,main,body{
+  background-color: var(--background-color);
+}
 .form-grid{
   margin: auto;
-  margin-top: 15vh;
   width: fit-content;
   display: grid;
   grid-template-columns: 2fr 5fr;
