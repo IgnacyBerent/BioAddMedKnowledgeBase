@@ -31,6 +31,7 @@
             <!-- TODO: Add class for author -->
             <p class="problems-label">Autor: {{ article.analysis_author }}</p>
         </div>
+    {% endfor %}
     </div>
     <script>
         const articles=document.querySelectorAll(".article-container");
@@ -44,5 +45,4 @@
         })
     })
     </script>
-    {% endfor %}
 {% endblock %}

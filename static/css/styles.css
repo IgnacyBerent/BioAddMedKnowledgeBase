@@ -1,3 +1,4 @@
+/* Kolory dla strony */
 :root{
   --background-color:rgb(115, 57, 224);
   --background-color-lighter:rgb(137, 85, 233);
@@ -8,17 +9,15 @@
   --button-shadow:rgba(0,0,0,0.2);
   --button-color:rgb(189, 114, 255);
   --border-color:rgb(194, 82, 255);
+  --high-contrast:black;
 }
+
+/* Ogólne rzeczy */
 html,main,body{
   background-color: var(--background-color);
 }
-.container-fluid{
-  background-color: var(--background-color);
-}
-.navbar{
-  margin: 0;
-  padding: 0;
-}
+
+/* Style headera */
 .header{
   width: 100vw;
   height: fit-content;
@@ -30,6 +29,8 @@ html,main,body{
   font-size: 35px;
   color: var(--text-color);
 }
+
+/* Style loga */
 .logo{
   height: 60px;
   border-radius: 20px;
@@ -37,12 +38,16 @@ html,main,body{
   left: 10%;
   display: inline-block;
 }
+
+/* Header */
 h1{
   display: inline-block;
 }
 textarea:focus, input:focus{
   outline: none;
 }
+
+/* Style navbara */
 .navbar{
   background-color: var(--background-color-lighter);
   position: absolute;
@@ -100,12 +105,15 @@ width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: var(--text-color);
 }
+
+/* Przycisk otwierania navbaru */
 .burger{
   position: relative;
   width: 100%;
   height: 2px;
-  background-color: black;
+  background-color: var(--high-contrast);
   transition: all .5s;
 }
 .burger::before{
@@ -114,7 +122,7 @@ width: 100%;
   inset: 0;
   top:-200%;
   height: 2px;
-  background-color: black;
+  background-color: var(--high-contrast);
   transition: all .5s;
 }
 .burger::after{
@@ -123,7 +131,7 @@ width: 100%;
   inset: 0;
   top:200%;
   height: 2px;
-  background-color: black;
+  background-color: var(--high-contrast);
   transition: all .5s;
 }
 .clicked>span{

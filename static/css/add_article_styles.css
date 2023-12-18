@@ -1,9 +1,12 @@
+/* Ogólne rzeczy */
 html,main,body{
   background-color: var(--background-color);
 }
 main{
   overflow:hidden;
 }
+
+/* Układ pól */
 .form-grid{
   margin: auto;
   display: grid;
@@ -11,25 +14,22 @@ main{
   width: 80%;
   gap: 20px;
 }
-.submit-button{
-  border-radius: 10px;
-  height: fit-content;
-  color: var(--text-color);
-  text-shadow: 0 0 2px var(--text-shadow);
-  border: var(--border-color) 2px solid;
-  background-color: var(--button-color);
-  padding: 5px 10px;
-  transition: all .2s;
-  font-weight: 400;
-  margin-bottom: 10%;
+.doi-input{
+  width: 40%;
 }
-.submit-button:hover{
-  transform: scale(1.02);
-  box-shadow: 0 0 20px var(--button-shadow);
+.year-input{
+  width: 20%;
 }
-label{
-  color: var(--text-color);
-  text-align: center;
+.link-input{
+  width: 100%;
+}
+.category-input{
+  width: 30%;
+  margin: auto;
+}
+.first-name-input,
+.last-name-input{
+  width: 30%;
 }
 input{
   width: fit-content;
@@ -40,27 +40,47 @@ input{
   padding: 1rem;
   border: none;
   overflow: hidden;
+  font-size: 18px;
+}
+label{
+  color: var(--text-color);
+  text-align: center;
 }
 textarea{
   margin: auto;
   padding-top: 0;
-  min-height: 50px;
+  min-height: 100px;
   width: 70%;
   border-radius: 5px 5px 0 5px;
   padding: 5px;
+  font-size: 12px;
   border: none;
 }
-
 @media screen and (min-width: 768px) {
   input,textarea,label {
     margin: auto;
-    font-size: 40px;
     width: 80%;
   }
   input{
     padding:2rem;
   }
 }
-.navbar{
-  padding: 0;
- }  
+
+/* Przycisk zapisywania */
+.submit-button{
+  border-radius: 10px;
+  height: fit-content;
+  width: fit-content;
+  color: var(--text-color);
+  text-shadow: 0 0 2px var(--text-shadow);
+  border: var(--border-color) 2px solid;
+  background-color: var(--button-color);
+  padding: 10px 20px;
+  transition: all .2s;
+  font-weight: 400;
+  margin-bottom: 10%;
+}
+.submit-button:hover{
+  transform: scale(1.02);
+  box-shadow: 0 0 20px var(--button-shadow);
+}

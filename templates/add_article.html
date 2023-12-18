@@ -11,7 +11,7 @@
 <link href="/static/css/add_article_styles.css" rel="stylesheet">
     <form method="POST" class="form-grid">
         {{ form.hidden_tag() }}
-        {{ form.doi.label(class="link-label") }} {{ form.doi(class="link-input", autocomplete="off") }}
+        {{ form.doi.label(class="doi-label") }} {{ form.doi(class="doi-input", autocomplete="off") }}
         {{ form.link.label(class="link-label") }} {{ form.link(class="link-input") }}
         {{ form.year.label(class="year-label") }} {{ form.year(class="year-input") }}
         {{ form.category.label(class="category-label") }} {{ form.category(class="category-input") }}
