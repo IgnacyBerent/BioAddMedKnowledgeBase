@@ -23,7 +23,7 @@
             <p class="problems-label">Problemy: {{ article.problems }}</p>
             <p class="additional-notes-label">Dodatkowe uwagi: {{ article.additional_notes }}</p>
             <!-- TODO: Add class for author -->
-            <p class="problems-label">Autor: {{ article.analysis_author }}</p>
+            <p class="problems-label">Autor: {{ article.analysis_author.username }}</p>
         </div>
     {% endfor %}
     </div>
