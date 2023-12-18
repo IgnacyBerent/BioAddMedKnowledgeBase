@@ -32,11 +32,12 @@ html,main,body{
 
 /* Style loga */
 .logo{
-  height: 60px;
+  height: 80px;
   border-radius: 20px;
-  margin: 5px;
+  margin: auto;
+  margin-block: 5px;
   left: 10%;
-  display: inline-block;
+  display: block;
 }
 
 /* Header */
@@ -99,8 +100,8 @@ width: 100%;
 .navbar-button{
   margin: 10px;
   display: inline;
-  height: 30px;
-  width: 30px;
+  height: 40px;
+  aspect-ratio: 1;
   border-radius: 10px;
   display: flex;
   align-items: center;
@@ -116,23 +117,18 @@ width: 100%;
   background-color: var(--high-contrast);
   transition: all .5s;
 }
-.burger::before{
+.burger::before,
+.burger::after{
   content: "";
   position: absolute;
   inset: 0;
-  top:-200%;
+  top:-300%;
   height: 2px;
   background-color: var(--high-contrast);
   transition: all .5s;
 }
 .burger::after{
-  content: "";
-  position: absolute;
-  inset: 0;
-  top:200%;
-  height: 2px;
-  background-color: var(--high-contrast);
-  transition: all .5s;
+  top:300%;
 }
 .clicked>span{
   background-color: white;

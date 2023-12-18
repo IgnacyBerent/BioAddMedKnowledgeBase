@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
+<script defer src="\static\js\scripts.js"></script>
 <button class="navbar-button">
     <span class="burger"></span>
 </button>
@@ -10,6 +11,7 @@
 </ul>
 <link href="/static/css/articles_styles.css" rel="stylesheet">
     <form method="POST" class="sort-conatiner">
+        <label>Ilość artykułów:</label><label class="articles-count "></label>
         {{ form.hidden_tag() }}
         {{ form.sort_by.label }} {{ form.sort_by() }}
         {{ form.category.label }} {{form.category() }}

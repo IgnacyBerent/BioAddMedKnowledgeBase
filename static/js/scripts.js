@@ -9,3 +9,5 @@ navbar_Button.addEventListener('click',()=>{
     navbar_Button.classList.remove("clicked");
   }
 })
+const articleCount=document.querySelectorAll(".article-container").length;
+document.querySelector(".articles-count").innerHTML=articleCount;
