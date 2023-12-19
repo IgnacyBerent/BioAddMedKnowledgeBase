@@ -26,12 +26,17 @@ form{
   border-radius: 5px;
   padding: 5px 10px;
   border: none;
+  margin-bottom: 15px;
+}
+p{
+  font-weight: 600;
+  color: red;
 }
 
 /* Style przycisku */
 .password-button{
   width: 70%;
-  margin-top: 30px;
+  margin-top: 15px;
   border-radius: 10px;
   border: rgb(194, 82, 255) 2px solid;
   background-color: rgb(189, 114, 255);

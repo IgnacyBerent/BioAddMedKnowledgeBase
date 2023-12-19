@@ -45,6 +45,12 @@ html,main,body{
   padding: 20px 10px;
   border: none;
 }
+p{
+  grid-column-start: 1;
+  grid-column-end: 3;
+  text-align: center;
+  color: red;
+}
 
 /* Style przycisku */
 .submit-button{
