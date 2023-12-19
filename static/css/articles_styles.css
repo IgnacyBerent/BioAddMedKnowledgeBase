@@ -52,9 +52,10 @@ html,main,body{
 .article-container>label{
   font-weight: 800;
 }
-p,h2{
+p,h2,a{
+  color: var(--text-color);
   max-width: 100%;
-  text-wrap:wrap;
+  word-break: break-all;
 }
 
 /* Style sortowania */
