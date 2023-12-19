@@ -5,7 +5,9 @@
     <form method="POST">
         {{ form.hidden_tag() }}
         <div class="form-grid">
-            <!-- TODO: Add class for doi -->
+            <div class="count">
+                <label class="number-of-articles">Ilość artykułów w bazie: {{ number_of_articles }}</label>
+            </div>
             {{ form.doi.label(class="link-label") }} {{ form.doi(class="link-input", autocomplete="off") }}
             {{ form.submit(class="submit-button") }}
         </div>

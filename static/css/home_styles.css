@@ -20,6 +20,18 @@ html,main,body{
 }
 
 /* Style zawartości */
+.count{
+  grid-column-start: 1;
+  grid-column-end: 3;
+  text-align: center;
+  border-radius: 10px;
+  padding-block: 5px;
+  box-shadow: 0 0 10px var(--text-color );
+}
+.count>label{
+  color: var(--text-color);
+  width: max-content;
+}
 .link-label{
   color: var(--text-color);
   text-align: center;
