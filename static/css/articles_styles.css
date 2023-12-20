@@ -49,6 +49,14 @@ html,main,body{
 .article-container>*{
   color: var(--text-color);
 }
+.article-container>label{
+  font-weight: 800;
+}
+p,h2,a{
+  color: var(--text-color);
+  max-width: 100%;
+  word-break: break-all;
+}
 
 /* Style sortowania */
 select {
