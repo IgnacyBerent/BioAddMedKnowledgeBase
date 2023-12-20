@@ -11,9 +11,9 @@ from classes import *
 from forms import *
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = os.environ['FLASK_KEY']
+app.config['SECRET_KEY'] = os.environ.get('FLASK_KEY')
 Bootstrap5(app)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///base.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DB_URI', 'sqlite:///base.db')
 db.init_app(app)
 api = Api(app)
 
@@ -195,4 +195,4 @@ def show_articles():
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=False)
