@@ -21,8 +21,7 @@
             <label class="result-label">Wynik:</label> <p>{{ article.result }}</p>
             <label class="problems-label">Problemy:</label> <p>{{ article.problems }}</p>
             <label class="additional-notes-label">Dodatkowe uwagi:</label> <p>{{ article.additional_notes }}</p>
-            <!-- TODO: Add class for author -->
-            <p class="problems-label">Autor:</label> {{ article.analysis_author }}</p>
+            <p class="problems-label">Autor:</label> {{ article.analysis_author.username }}</p>
         </div>
     {% endfor %}
     </div>
