@@ -81,7 +81,7 @@ def give_password():
             session['logged_in'] = True
             return redirect(url_for('home'))
         else:
-            flash("Niepoprawne hasło!")
+            flash("Niepoprawne hasło!","info")
             return redirect(url_for('give_password'))
 
     return render_template("index.html", form=form, is_login_page=True)
@@ -106,7 +106,7 @@ def add_password():
             db.session.commit()
             return redirect(url_for('give_password'))
         else:
-            flash("Hasło już istnieje!")
+            flash("Hasło już istnieje!", "info")
             return redirect(url_for('give_password'))
     return render_template("add_password.html", form=form)
 
