@@ -3,7 +3,6 @@
 <script defer src="\static\js\scripts.js"></script>
 <link href="/static/css/articles_styles.css" rel="stylesheet">
     <form method="POST" class="sort-conatiner">
-        <label>Ilość artykułów:</label><label class="articles-count "></label>
         {{ form.hidden_tag() }}
         {{ form.sort_by.label }} {{ form.sort_by() }}
         {{ form.category.label }} {{form.category() }}
@@ -14,16 +13,16 @@
     {% for article in articles %}
         <div class="article-container">
             <h2 class="article-head">{{ article.title }}</h2>
-            <p class="link-label">Link: <a href="{{ article.link }}">{{ article.link }}</a></p>
-            <p class="year-label">Rok: {{ article.year }}</p>
-            <p class="category-label">Kategorie: {{ article.category[0] }}, {{ article.category[1] }}</p>
-            <p class="problem-label">Opis problemu: {{ article.problem_description }}</p>
-            <p class="solution-label">Opis rozwiązania: {{ article.solution_description }}</p>
-            <p class="result-label">Wynik: {{ article.result }}</p>
-            <p class="problems-label">Problemy: {{ article.problems }}</p>
-            <p class="additional-notes-label">Dodatkowe uwagi: {{ article.additional_notes }}</p>
+            <label class="link-label">Link:</label><p><a href="{{ article.link }}">{{ article.link }}</a></p>
+            <label class="year-label">Rok:</label> <p>{{ article.year }}</p>
+            <label class="category-label">Kategorie:</label> <p>{{ article.category[0] }}, {{ article.category[1] }}</p>
+            <label class="problem-label">Opis problemu:</label> <p>{{ article.problem_description }}</p>
+            <label class="solution-label">Opis rozwiązania:</label> <p>{{ article.solution_description }}</p>
+            <label class="result-label">Wynik:</label> <p>{{ article.result }}</p>
+            <label class="problems-label">Problemy:</label> <p>{{ article.problems }}</p>
+            <label class="additional-notes-label">Dodatkowe uwagi:</label> <p>{{ article.additional_notes }}</p>
             <!-- TODO: Add class for author -->
-            <p class="problems-label">Autor: {{ article.analysis_author.username }}</p>
+            <p class="problems-label">Autor:</label> {{ article.analysis_author }}</p>
         </div>
     {% endfor %}
     </div>
