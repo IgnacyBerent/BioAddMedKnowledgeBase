@@ -21,7 +21,7 @@
             <label class="result-label">Wynik:</label> <p>{{ article.result }}</p>
             <label class="problems-label">Problemy:</label> <p>{{ article.problems }}</p>
             <label class="additional-notes-label">Dodatkowe uwagi:</label> <p>{{ article.additional_notes }}</p>
-            <p class="problems-label">Autor:</label> {{ article.analysis_author.username }}</p>
+            <p class="problems-label">Autor:</label> {{ article.full_name }}</p>
         </div>
     {% endfor %}
     </div>

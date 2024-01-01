@@ -15,12 +15,15 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = os.environ.get('FLASK_KEY')
 Bootstrap5(app)
 
+PRIVATE_KEY_MID = os.environ.get('PRIVATE_KEY')
+PRIVATE_KEY = '-----BEGIN PRIVATE KEY-----\n' + PRIVATE_KEY_MID + '\n-----END PRIVATE KEY-----'
+
 # Initialize Firebase
 cred = credentials.Certificate({
     "type": "service_account",
     "project_id": os.environ.get('PROJECT_ID'),
     "private_key_id": os.environ.get('PRIVATE_KEY_ID'),
-    "private_key": os.environ.get('PRIVATE_KEY'),
+    "private_key": PRIVATE_KEY,
     "client_email": os.environ.get('CLIENT_EMAIL'),
     "client_id": os.environ.get('CLIENT_ID'),
     "auth_uri": os.environ.get('AUTH_URI'),
